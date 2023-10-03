@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento Coffee Break</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        .costs-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .costs-container .coffee-break-costs,
+        .costs-container .divulgacao-costs {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Orçamento Coffee Break</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="produtoTable">
+            <!-- Os itens de coffee break serão inseridos aqui com JavaScript -->
+        </tbody>
+    </table>
+    
+    <div class="costs-container">
+        <div class="coffee-break-costs">
+            <h2>Custos Coffee Break</h2>
+            <p id="coffeeBreakTotal">R$ 0.00</p>
+        </div>
+        <div class="divulgacao-costs">
+            <h2>Custos Divulgação</h2>
+            <p id="divulgacaoTotal">R$ 0.00</p>
+        </div>
+    </div>
+    
+    <h2>Total Geral</h2>
+    <p id="total">R$ 0.00</p>
+    
+    <h2>Anotação para E-mail</h2>
+    <textarea id="anotacao" rows="4" cols="50"></textarea><br><br>
+    
+    <button class="third"onclick="enviarEmail()">Enviar por E-mail</button>
+    
+    <script>
+        // Lista de produtos alimentícios fictícios
+        const produtos = [
+            { nome: "Café", preco: 5.70 },
+            { nome: "Bolo", preco: 5.70 },
+            { nome: "Cachorro-Quente", preco: 8.00 },
+            
+            // Adicione mais produtos de coffee break aqui conforme necessário
+        ];
+
+        // Lista de itens de divulgação fictícios
+        const itensDivulgacao = [
+            { nome: "Banners", preco: 50.00 },
+            { nome: "Crachás", preco: 3.00 },
+            { nome: "Camisetas", preco: 12.00 },
+            
+            // Adicione mais itens de divulgação aqui conforme necessário
+        ];
+
+        // Função para calcular o total dos produtos alimentícios
+        function calcularTotal() {
+            let totalProdutos = 0;
+            produtos.forEach((produto, index) => {
+                const quantidade = parseInt(document.getElementById(`quantidade_${index}`).value);
+                const total = quantidade * produto.preco;
+                totalProdutos += total;
+                document.getElementById(`total_${index}`).textContent = `R$ ${total.toFixed(2)}`;
+            });
+
+            let totalDivulgacao = 0;
+            itensDivulgacao.forEach((item, index) => {
+                const quantidade = parseInt(document.getElementById(`quantidadeDivulgacao_${index}`).value);
+                const total = quantidade * item.preco;
+                totalDivulgacao += total;
+                document.getElementById(`totalDivulgacao_${index}`).textContent = `R$ ${total.toFixed(2)}`;
+            });
+
+            // Calcular o total geral e exibir custos separados
+            const totalGeral = totalProdutos + totalDivulgacao;
+            document.getElementById("total").textContent = `R$ ${totalGeral.toFixed(2)}`;
+            document.getElementById("coffeeBreakTotal").textContent = `R$ ${totalProdutos.toFixed(2)}`;
+            document.getElementById("divulgacaoTotal").textContent = `R$ ${totalDivulgacao.toFixed(2)}`;
+        }
+
+        // Função para enviar por e-mail
+        function enviarEmail() {
+            const anotacao = document.getElementById("anotacao").value;
+            const coffeeBreakTotal = document.getElementById("coffeeBreakTotal").textContent;
+            const divulgacaoTotal = document.getElementById("divulgacaoTotal").textContent;
+            const totalGeral = document.getElementById("total").textContent;
+
+            // Lógica para enviar as informações por e-mail aqui
+            alert("E-mail enviado com sucesso!");
+        }
+
+        // Cria as linhas da tabela com os produtos de coffee break
+        produtos.forEach((produto, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${produto.nome}</td>
+                <td><input type="number" id="quantidade_${index}" min="0" value="0" onchange="calcularTotal()"></td>
+                <td>R$ ${produto.preco.toFixed(2)}</td>
+                <td id="total_${index}">R$ 0.00</td>
+            `;
+            document.getElementById("produtoTable").appendChild(row);
+        });
+
+        // Cria as linhas da tabela com os itens de divulgação
+        itensDivulgacao.forEach((item, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${item.nome}</td>
+                <td><input type="number" id="quantidadeDivulgacao_${index}" min="0" value="0" onchange="calcularTotal()"></td>
+                <td>R$ ${item.preco.toFixed(2)}</td>
+                <td id="totalDivulgacao_${index}">R$ 0.00</td>
+            `;
+            document.getElementById("divulgacaoTable").appendChild(row);
+        });
+    </script>
+
+</body>
+</html>

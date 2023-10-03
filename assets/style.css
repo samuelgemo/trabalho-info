@@ -1,0 +1,31 @@
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+#total {
+    font-weight: bold;
+}
+
+h2 {
+
+}
+
+.third {
+    border-color: blue;
+    color: black;
+    box-shadow: 0 0 0 0 blue, 0 0 0 0 blue;
+    transition: all 150ms ease-in-out;
+    
+    &:hover {
+      box-shadow: 0 0 1px 0 blue inset, 0 0 10px 4px blue;
+    }
+  }
