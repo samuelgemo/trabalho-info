@@ -15,10 +15,6 @@ th {
     font-weight: bold;
 }
 
-h2 {
-
-}
-
 .third {
     border-color: blue;
     color: black;
@@ -43,7 +39,6 @@ h2 {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    background: #941d1d;
   }
   
   a {
@@ -71,7 +66,7 @@ h2 {
     bottom: 1px;
     text-align: center;
     background: #0c0c0c;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.644);
     transition: 0.5s;
   }
   
@@ -99,18 +94,9 @@ h2 {
     height: 100%;
     background: linear-gradient(
       45deg,
-      #c0392b,
-      #f39c12,
-      #f1c40f,
-      #2ecc71,
-      #3498db,
-      #2980b9,
+
       #9b59b6,
       #8e44ad,
-      #c0392b,
-      #f39c12,
-      #f1c40f,
-      #2ecc71,
       #3498db,
       #2980b9,
       #9b59b6,
@@ -136,18 +122,8 @@ h2 {
     height: 100%;
     background: linear-gradient(
       45deg,
-      #c0392b,
-      #f39c12,
-      #f1c40f,
-      #2ecc71,
-      #3498db,
-      #2980b9,
       #9b59b6,
       #8e44ad,
-      #c0392b,
-      #f39c12,
-      #f1c40f,
-      #2ecc71,
       #3498db,
       #2980b9,
       #9b59b6,
