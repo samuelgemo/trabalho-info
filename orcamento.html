@@ -7,108 +7,65 @@
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <h1>Orçamento Coffee Break</h1>
-    <h2>Alimentos</h2>
-    <table>
+    <div id="orc_1">
+        <h1>Calculadora de Orçamento para o Evento</h1>
+        <h2>Dados do Evento</h2>
+        <br>
+        <label for="participantes">Participantes</label>
+        <input type="number" name="participantes" id="participantes">
+        <br>
+        <section id="orc_2">
+            <h2>Custos de Alimentos</h2>
+            <table border="1">
+                <tr>
+                    <th>Item</th>
+                    <th>Quantidade de Participantes</th>
+                    <th>Preço por Unidade</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <th>Café</th>
+                    <td><input type="number" class="number"></td>
+                    <td><input type="number" class="number"></td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <th>Bolo</th>
+                    <td><input type="number" class="number"></td>
+                    <td><input type="number" class="number"></td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <th>Cachorro-Quente</th>
+                    <td><input type="number" class="number"></td>
+                    <td><input type="number" class="number"></td>
+                    <td>0.00</td>
+                </tr>
+            </table>
+        </section>
+        <br>
+        <section>
+            <h2>Custos de Itens de Divulgação</h2>
+        </section>
+        <br>
+        <h2>Custos Totais:</h2>
+        <br>
         <thead>
             <tr>
-                <th>Produto</th>
-                <th>Quantidade</th>
-                <th>Preço Unitário</th>
+                <th>Tipo</th>
                 <th>Total</th>
             </tr>
         </thead>
-        <tbody id="produtoTable">
-            <!-- Os itens de coffee break serão inseridos aqui com JavaScript -->
-        </tbody>
-    </table>
-    
-    <h2>Divulgação</h2>
-    <table>
-        <thead>
+        <tbody>
             <tr>
-                <th>Item</th>
-                <th>Quantidade</th>
-                <th>Preço Unitário</th>
-                <th>Total</th>
+                <td>Produtos Alimentícios</td>
+                <td>0</td>
             </tr>
-        </thead>
-        <tbody id="divulgacaoTable">
-            <!-- Os itens de divulgação serão inseridos aqui com JavaScript -->
+
         </tbody>
-    </table>
-    <input type="button" value="Calcular total" onclick = calcularTotal()>
-    
-    <h2>Total Geral</h2>
-    <p id="total">R$ 0.00</p>
-    
+    </div>
     <script>
-        // Lista de produtos alimentícios fictícios
-        const produtos = [
-            { nome: "Café", preco: 5.70 },
-            { nome: "Bolo", preco: 5.70 },
-            { nome: "Cachorro-Quente", preco: 8.00 },
-            
-            // Adicione mais produtos de coffee break aqui conforme necessário
-        ];
 
-        // Lista de itens de divulgação fictícios
-        const itensDivulgacao = [
-            { nome: "Banners", preco: 8.00 },
-            { nome: "Crachás", preco: 8.00 },
-            { nome: "Camisetas", preco: 8.00 },
-            
-            // Adicione mais itens de divulgação aqui conforme necessário
-        ];
-        
-
-        // Função para calcular o total dos produtos alimentícios
-        function calcularTotal() {
-            let totalProdutos = 0;
-            produtos.forEach((produto, index) => {
-                const quantidade = parseInt(document.getElementById(`quantidade_${index}`).value);
-                const total = quantidade * produto.preco;
-                totalProdutos += total;
-                document.getElementById(`total_${index}`).textContent = `R$ ${total.toFixed(2)}`;
-            });
-
-            let totalDivulgacao = 0;
-            itensDivulgacao.forEach((item, index) => {
-                const quantidade = parseInt(document.getElementById(`quantidadeDivulgacao_${index}`).value);
-                const total = quantidade * item.preco;
-                totalDivulgacao += total;
-                document.getElementById(`totalDivulgacao_${index}`).textContent = `R$ ${total.toFixed(2)}`;
-            });
-
-            // Calcular o total geral
-            const totalGeral = totalProdutos + totalDivulgacao;
-
-            document.getElementById("total").textContent = `R$ ${totalGeral.toFixed(2)}`;
-        }
-
-        // Cria as linhas da tabela com os produtos de coffee break
-        produtos.forEach((produto, index) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${produto.nome}</td>
-                <td><input type="number" id="quantidade_${index}" min="0" value="0"></td>
-                <td>R$ ${produto.preco.toFixed(2)}</td>
-                <td id="total_${index}">R$ 0.00</td>
-            `;
-            document.getElementById("produtoTable").appendChild(row);
-        });
-
-        // Cria as linhas da tabela com os itens de divulgação
-        itensDivulgacao.forEach((item, index) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${item.nome}</td>
-                <td><input type="number" id="quantidadeDivulgacao_${index}" min="0" value="0"></td>
-                <td>R$ ${item.preco.toFixed(2)}</td>
-                <td id="totalDivulgacao_${index}">R$ 0.00</td>
-            `;
-            document.getElementById("divulgacaoTable").appendChild(row);
-        });
     </script>
 </body>
 </html>
