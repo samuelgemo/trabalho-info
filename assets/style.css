@@ -24,6 +24,11 @@ h1 {
   width: 200px; height: 50px;
   font-size: 45px
 }
-#orc_2 {
-  margin: 100px;
+
+.tabela {
+  margin: auto
+}
+.botao {
+  width: 200px; height: 50px;
+  font-size: large;
 }

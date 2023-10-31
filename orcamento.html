@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orçamento Coffee Break</title>
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" href="assets/img/logotipo-removebg-preview.png" type="image/x-icon">
 </head>
 <body>
     <div id="orc_1">
@@ -16,7 +17,7 @@
         <br>
         <section id="orc_2">
             <h2>Custos de Alimentos</h2>
-            <table border="1">
+            <table border="1" class="tabela">
                 <tr>
                     <th>Item</th>
                     <th>Quantidade de Participantes</th>
@@ -25,20 +26,20 @@
                 </tr>
                 <tr>
                     <th>Café</th>
-                    <td><input type="number" class="number"></td>
-                    <td><input type="number" class="number"></td>
-                    <td>0.00</td>
+                    <td><input type="number" id="number"></td>
+                    <td id="valor">5,70</td>
+                    <td id="total"><span></span></td>
                 </tr>
                 <tr>
                     <th>Bolo</th>
                     <td><input type="number" class="number"></td>
-                    <td><input type="number" class="number"></td>
+                    <td>5,70</td>
                     <td>0.00</td>
                 </tr>
                 <tr>
                     <th>Cachorro-Quente</th>
                     <td><input type="number" class="number"></td>
-                    <td><input type="number" class="number"></td>
+                    <td>8,00</td>
                     <td>0.00</td>
                 </tr>
             </table>
@@ -46,26 +47,64 @@
         <br>
         <section>
             <h2>Custos de Itens de Divulgação</h2>
+            <table border="1" class="tabela">
+                <tr>
+                    <th>Item</th>
+                    <th>Quantidade de Participantes</th>
+                    <th>Preço por Unidade</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <th>Banner</th>
+                    <td><input type="number" class="number"></td>
+                    <td>8,00</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <th>Crachá</th>
+                    <td><input type="number" class="number"></td>
+                    <td>8,00</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <th>Camiseta</th>
+                    <td><input type="number" class="number"></td>
+                    <td>8,00</td>
+                    <td>0.00</td>
+                </tr>
+            </table>
+            <div><input type="button" class="botao" value="Calcular" onclick="calcular()"></div>
         </section>
         <br>
         <h2>Custos Totais:</h2>
         <br>
-        <thead>
+        <table border="1" class="tabela">
             <tr>
                 <th>Tipo</th>
                 <th>Total</th>
             </tr>
-        </thead>
-        <tbody>
             <tr>
                 <td>Produtos Alimentícios</td>
-                <td>0</td>
+                <td>0,00</td>
             </tr>
-
-        </tbody>
+            <tr>
+                <td>Divulgação</td>
+                <td>0,00</td>
+            </tr>
+            <tr>
+                <td>Custo Total do Evento</td>
+                <td>0,00</td>
+            </tr>
+            </table>
     </div>
     <script>
 
+        function gebi(id) {
+            return document.getElementById(id)
+        }
+        function calcular() {
+            var n1 = gebi()
+        }
     </script>
 </body>
 </html>
