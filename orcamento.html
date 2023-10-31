@@ -26,21 +26,21 @@
                 </tr>
                 <tr>
                     <th>Café</th>
-                    <td><input type="number" id="num1"></td>
-                    <td id="valor">5.70</td>
-                    <td id="total"></td>
+                    <td><input type="number" id="num1" class="number"></td>
+                    <td>5.70</td>
+                    <td id="total">0.00</td>
                 </tr>
                 <tr>
                     <th>Bolo</th>
-                    <td><input type="number" id="num2"></td>
+                    <td><input type="number" id="num2" class="number"></td>
                     <td>5,70</td>
-                    <td>0.00</td>
+                    <td id="total2">0.00</td>
                 </tr>
                 <tr>
                     <th>Cachorro-Quente</th>
-                    <td><input type="number" id="num3"></td>
+                    <td><input type="number" id="num3" class="number"></td>
                     <td>8,00</td>
-                    <td>0.00</td>
+                    <td id="total3">0.00</td>
                 </tr>
             </table>
         </section>
@@ -56,21 +56,21 @@
                 </tr>
                 <tr>
                     <th>Banner</th>
-                    <td><input type="number" id="num4"></td>
+                    <td><input type="number" id="num4" class="number"></td>
                     <td>8,00</td>
-                    <td>0.00</td>
+                    <td id="total4">0.00</td>
                 </tr>
                 <tr>
                     <th>Crachá</th>
-                    <td><input type="number" id="num5"></td>
+                    <td><input type="number" id="num5" class="number"></td>
                     <td>8,00</td>
-                    <td>0.00</td>
+                    <td id="total5">0.00</td>
                 </tr>
                 <tr>
                     <th>Camiseta</th>
-                    <td><input type="number" id="num6"></td>
+                    <td><input type="number" id="num6" class="number"></td>
                     <td>8,00</td>
-                    <td>0.00</td>
+                    <td id="total6">0.00</td>
                 </tr>
             </table>
             <div><input type="button" class="botao" value="Calcular" onclick="calcular()"></div>
@@ -96,6 +96,7 @@
                 <td>0,00</td>
             </tr>
             </table>
+            <input type="button" value="Calcular Total" onclick="calcularTotal()">
     </div>
     <script>
 
@@ -104,20 +105,32 @@
         }
 
         function calcular() {
-            const valores = [5.70, 5.70, 8, 8, 8, 8]
+            const valores = [5.70, 5.70, 8, 8, 8, 8, 8]
             const resultados = []
-            for (let i = 0; i < valores.length; i++) {
-                const element = valores[i];
-                var numeros = parseInt(gebi("num" + i))
-                console.log(element)
+            for (let i = 1; i < valores.length; i++) {
+                const element = valores[i - 1];
+                var numeros = parseFloat(gebi("num" + i).value);
+                var soma = numeros * element
+                resultados.push(soma)
+                gebi("total").textContent = resultados[0]
+                gebi("total2").textContent = resultados[1]
+                gebi("total3").textContent = resultados[2]
+                gebi("total4").textContent = resultados[3]
+                gebi("total5").textContent = resultados[4]
+                gebi("total6").textContent = resultados[5]
 
                 
             }
 }
 
-// Exemplo de uso:
-var resultados = calcular();
-console.log(resultados);
+        function calcularTotal() {
+            const alimentos = ["Café", "Bolo", "Cachorro-Quente"]
+            for (let i = 1; i < alimentos.length; i++) {
+                var totalAlimentos =+ parseFloat(gebi("total" + i).value)
+                console.log(totalAlimentos)
+                
+            }
+        }
 
     </script>
 </body>
