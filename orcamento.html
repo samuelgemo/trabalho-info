@@ -26,19 +26,19 @@
                 </tr>
                 <tr>
                     <th>Café</th>
-                    <td><input type="number" id="number"></td>
-                    <td id="valor">5,70</td>
-                    <td id="total"><span></span></td>
+                    <td><input type="number" id="num1"></td>
+                    <td id="valor">5.70</td>
+                    <td id="total"></td>
                 </tr>
                 <tr>
                     <th>Bolo</th>
-                    <td><input type="number" class="number"></td>
+                    <td><input type="number" id="num2"></td>
                     <td>5,70</td>
                     <td>0.00</td>
                 </tr>
                 <tr>
                     <th>Cachorro-Quente</th>
-                    <td><input type="number" class="number"></td>
+                    <td><input type="number" id="num3"></td>
                     <td>8,00</td>
                     <td>0.00</td>
                 </tr>
@@ -56,19 +56,19 @@
                 </tr>
                 <tr>
                     <th>Banner</th>
-                    <td><input type="number" class="number"></td>
+                    <td><input type="number" id="num4"></td>
                     <td>8,00</td>
                     <td>0.00</td>
                 </tr>
                 <tr>
                     <th>Crachá</th>
-                    <td><input type="number" class="number"></td>
+                    <td><input type="number" id="num5"></td>
                     <td>8,00</td>
                     <td>0.00</td>
                 </tr>
                 <tr>
                     <th>Camiseta</th>
-                    <td><input type="number" class="number"></td>
+                    <td><input type="number" id="num6"></td>
                     <td>8,00</td>
                     <td>0.00</td>
                 </tr>
@@ -102,9 +102,23 @@
         function gebi(id) {
             return document.getElementById(id)
         }
+
         function calcular() {
-            var n1 = gebi()
-        }
+            const valores = [5.70, 5.70, 8, 8, 8, 8]
+            const resultados = []
+            for (let i = 0; i < valores.length; i++) {
+                const element = valores[i];
+                var numeros = parseInt(gebi("num" + i))
+                console.log(element)
+
+                
+            }
+}
+
+// Exemplo de uso:
+var resultados = calcular();
+console.log(resultados);
+
     </script>
 </body>
 </html>
