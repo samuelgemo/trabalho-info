@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="orcamento.html"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Semana da Informática!!</h1>
+        <nav>
+            <a href="index.html">Parceiros</a>
+            <a href="#">Jogos</a>
+            <a href="#">Fotos</a>
+            <a href="orcamento.html">Orçamento</a>
+            <a href="formulario.html">Inscreva-se</a>
+            <a href="#">Cronograma</a>
+        </nav>
+    </header>
+    <form class="rgbform" id="alunoForm">
+        <label for="nome">Nome do Aluno:</label>
+        <input placeholder="Ex: Lucas Henrique Pistore" type="text" id="nome" required>
+
+        <label for="matricula">Matrícula do Aluno:</label>
+        <input placeholder="Ex: 9999999999" id="matricula" required>
+
+        <label for="cpf">CPF:</label>
+        <input placeholder="Ex: 999.999.999-99" type="text" id="cpf" required>
+
+        <label for="email">Email:</label>
+        <input placeholder="lucaaspistore@gmail.com" type="email" id="email" required>
+
+        <label for="turma">Turma:</label>
+        <select id="turma" required>
+            <option value="">Selecione a Turma</option>
+            <option value="turma1A">Turma 1 A</option>
+            <option value="turma1B">Turma 1 B</option>
+            <option value="turma2A">Turma 2 A</option>
+            <option value="turma2B">Turma 2 B</option>
+            <option value="turma3A">Turma 3 A</option>
+            <option value="turma3B">Turma 3 B</option>
+        </select>
+
+        <button class="glow-on-hover" type="submit" onclick=inscrever()>Enviar</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('alunoForm');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const nome = document.getElementById('nome').value;
+                const matricula = document.getElementById('matricula').value;
+                const cpf = document.getElementById('cpf').value;
+                const email = document.getElementById('email').value;
+                const turma = document.getElementById('turma').value;
+                const inscritos = []
+
+                const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+                if (!cpfRegex.test(cpf)) {
+                    alert('CPF inválido! Utilize o formato 000.000.000-00');
+                    return;
+                }
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Email inválido! Utilize um formato válido.');
+                    return;
+                }
+
+                localStorage.setItem('nomeAluno', nome);
+                localStorage.setItem('matriculaAluno', matricula);
+                localStorage.setItem('cpfAluno', cpf);
+                localStorage.setItem('emailAluno', email);
+                localStorage.setItem('turmaAluno', turma);
+                localStorage,setItem('total_inscritos', inscritos )
+
+                alert('Dados armazenados no Local Storage!');
+                form.reset();
+            });
+        });
+        function inscrever() {
+            const inscritos = []
+            inscritos.push("inscrito")
+        }
+    </script>
+</body>
+</html>

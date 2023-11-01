@@ -6,18 +6,32 @@
     <title>Orçamento Coffee Break</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="shortcut icon" href="assets/img/logotipo-removebg-preview.png" type="image/x-icon">
+    <script type="text/javascript" src="myscript.js"></script>
+    <script src="formulario.html"></script>
 </head>
 <body>
-    <div id="orc_1">
+    <center>
+    <header>
+        <h1>Semana da Informática!!</h1>
+        <nav>
+            <a href="index.html">Parceiros</a>
+            <a href="#">Jogos</a>
+            <a href="#">Fotos</a>
+            <a href="orcamento.html">Orçamento</a>
+            <a href="formulario.html">Inscreva-se</a>
+            <a href="#">Cronograma</a>
+        </nav>
+    </header>
+    <div id="orc_1" class="rgbform">
         <h1>Calculadora de Orçamento para o Evento</h1>
-        <h2>Dados do Evento</h2>
         <br>
         <label for="participantes">Participantes</label>
-        <input type="number" name="participantes" id="participantes">
+        <input type="number" name="participantes" id="participantes" class="number" readonly>
+        <br>
         <br>
         <section id="orc_2">
             <h2>Custos de Alimentos</h2>
-            <table border="1" class="tabela">
+            <table border="1" class="rgbform" id="tabela_alimentos">
                 <tr>
                     <th>Item</th>
                     <th>Quantidade de Participantes</th>
@@ -47,7 +61,7 @@
         <br>
         <section>
             <h2>Custos de Itens de Divulgação</h2>
-            <table border="1" class="tabela">
+            <table border="1" class="rgbform" id="tabela_divulgacao">
                 <tr>
                     <th>Item</th>
                     <th>Quantidade de Participantes</th>
@@ -73,65 +87,161 @@
                     <td id="total6">0.00</td>
                 </tr>
             </table>
-            <div><input type="button" class="botao" value="Calcular" onclick="calcular()"></div>
+            <div><button class="glow-on-hover" onclick="calcular()">Calcular</button>
         </section>
         <br>
         <h2>Custos Totais:</h2>
         <br>
-        <table border="1" class="tabela">
+        <table border="1" class="rgbform" id="tabela_evento">
             <tr>
                 <th>Tipo</th>
                 <th>Total</th>
             </tr>
             <tr>
                 <td>Produtos Alimentícios</td>
-                <td>0,00</td>
+                <td id="total_alimentos">0,00</td>
             </tr>
             <tr>
                 <td>Divulgação</td>
-                <td>0,00</td>
+                <td id="total_divulgacao">0,00</td>
             </tr>
             <tr>
                 <td>Custo Total do Evento</td>
-                <td>0,00</td>
+                <td id="total_evento">0,00</td>
             </tr>
-            </table>
-            <input type="button" value="Calcular Total" onclick="calcularTotal()">
+        <table border="1" class="rgbform" id="tabela_dolar">
+            <tr>
+                <th>Total em Dólar</th>
+            </tr>
+            <tr>
+                <td id="dolar_alimentos">0,00</td>
+            </tr>
+            <tr>
+                <td id="dolar_divulgacao">0,00</td>
+            </tr>
+            <tr>
+                <td id="dolar_evento">0,00</td>
+            </tr>
+        <table border="1" class="rgbform" id="tabela_euro">
+            <tr>
+                <th>Total em Euro</th>
+            </tr>
+            <tr>
+                <td id="euro_alimentos">0,00</td>
+            </tr>
+            <tr>
+                <td id="euro_divulgacao">0,00</td>
+            </tr>
+            <tr>
+                <td id="euro_evento">0,00</td>
+            </tr>
+        </table>
+        <button class="glow-on-hover" id="botao_dolar" onclick="calcularDolar()">Calcular em Dólar</button>
+        <button class="glow-on-hover" onclick="calcularTotal()">Calcular Total</button>
+        <button class="glow-on-hover" id="botao_euro" onclick="calcularEuro()">Calcular em Euro</button>
     </div>
+    <br>
+    <form action="https://app.headlessforms.cloud/api/v1/form-submission/nkJtA1ewcj" method="POST" class="rgbform">
+        <label for="Email">Meu E-mail</label>
+        <input type="email" 
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+            name="email" id="Email" required class="input"><br>
+        <label for="Nome">Meu Nome</label>
+        <input type="text" name="nome" id="Nome" required class="input"><br>
+        <textarea rows="7" cols="70" name="texto" placeholder="O texto do seu e-mail..." required></textarea><br>
+        <button class="glow-on-hover" type="submit" value="Enviar" onclick=""></button>
+    </form>
+</center>
     <script>
-
-        function gebi(id) {
-            return document.getElementById(id)
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            // Código para acessar dados do localStorage em arquivo2.js
+            var pessoas = localStorage.getItem("total_inscritos")
+            console.log(pessoas); // Isso imprimirá o valor definido em arquivo1.js
+            gebi("participantes").textContent = pessoas
+        });
 
         function calcular() {
-            const valores = [5.70, 5.70, 8, 8, 8, 8, 8]
-            const resultados = []
-            for (let i = 1; i < valores.length; i++) {
-                const element = valores[i - 1];
-                var numeros = parseFloat(gebi("num" + i).value);
-                var soma = numeros * element
-                resultados.push(soma)
-                gebi("total").textContent = resultados[0]
-                gebi("total2").textContent = resultados[1]
-                gebi("total3").textContent = resultados[2]
-                gebi("total4").textContent = resultados[3]
-                gebi("total5").textContent = resultados[4]
-                gebi("total6").textContent = resultados[5]
-
-                
-            }
-}
-
-        function calcularTotal() {
-            const alimentos = ["Café", "Bolo", "Cachorro-Quente"]
-            for (let i = 1; i < alimentos.length; i++) {
-                var totalAlimentos =+ parseFloat(gebi("total" + i).value)
-                console.log(totalAlimentos)
-                
+            if (gebi("num1").value === "" || gebi("num2").value === "" || gebi("num3").value === "" || gebi("num4").value === "" || gebi("num5").value === "" || gebi("num6").value === "" ||
+            gebi("num1").value < 0 || gebi("num2").value < 0 || gebi("num3").value < 0 || gebi("num4").value < 0 || gebi("num5").value < 0 || gebi("num6").value < 0) {
+            alert("Preencha com números válidos!");
+            } else {
+                const valores = [5.70, 5.70, 8, 8, 8, 8, 8]
+                const resultados = []
+                for (let i = 1; i < valores.length; i++) {
+                    const element = valores[i - 1];
+                    var numeros = parseFloat(gebi("num" + i).value);
+                    var soma = numeros * element
+                    resultados.push(soma)
+                    gebi("total").textContent = resultados[0].toFixed(2)
+                    gebi("total2").textContent = resultados[1]
+                    gebi("total3").textContent = resultados[2]
+                    gebi("total4").textContent = resultados[3]
+                    gebi("total5").textContent = resultados[4]
+                    gebi("total6").textContent = resultados[5]
+                }
             }
         }
 
+        function calcularAlimentos() {
+    const alimentos = [gebi("total"), gebi("total2"), gebi("total3")]
+    var totalAlimentos = 0
+    
+    for (let i = 0; i < alimentos.length; i++) {
+        totalAlimentos += parseFloat(alimentos[i].textContent)
+        var valor = parseFloat(alimentos[i].textContent);
+    }
+
+    gebi("total_alimentos").textContent = totalAlimentos.toFixed(2)
+    }
+
+    
+        function calcularDivulgacao() {
+    const divulgacao = [gebi("total4"), gebi("total5"), gebi("total6")]
+    var totalDivulgacao = 0
+    
+    for (let i = 0; i < divulgacao.length; i++) {
+        totalDivulgacao += parseFloat(divulgacao[i].textContent)
+        var valor = parseFloat(divulgacao[i].textContent);
+    }
+
+    gebi("total_divulgacao").textContent = totalDivulgacao.toFixed(2)
+    }
+
+    function calcularTotal() {
+        calcularAlimentos();
+        calcularDivulgacao();
+        var alimentos = parseFloat(gebi("total_alimentos").textContent);
+        var divulgacao = parseFloat(gebi("total_divulgacao").textContent);
+        var total = alimentos + divulgacao;
+        gebi("total_evento").textContent = total.toFixed(2);
+    }
+
+    function calcularDolar() {
+        var dolar = prompt("Qual o valor do dólar hoje?")
+        var valorAlimento = parseFloat(gebi("total_alimentos").textContent);
+        var alimentoDolar = valorAlimento / dolar
+        gebi("dolar_alimentos").textContent ="$ " + alimentoDolar.toFixed(2)
+        var valorDivulgacao = parseFloat(gebi("total_divulgacao").textContent)
+        var divulgacaoDolar = valorDivulgacao / dolar
+        gebi("dolar_divulgacao").textContent ="$ " + divulgacaoDolar.toFixed(2)
+        var valorTotal = parseFloat(gebi("total_evento").textContent)
+        var totalDolar = valorTotal / dolar
+        gebi("dolar_evento").textContent ="$ " + totalDolar.toFixed(2)
+    }
+
+    function calcularEuro() {
+        var euro = prompt("Qual o valor do euro hoje?")
+        var valorAlimento = parseFloat(gebi("total_alimentos").textContent);
+        var alimentoEuro = valorAlimento / euro
+        gebi("euro_alimentos").textContent ="€ " + alimentoEuro.toFixed(2)
+        var valorDivulgacao = parseFloat(gebi("total_divulgacao").textContent)
+        var divulgacaoEuro = valorDivulgacao / euro
+        gebi("euro_divulgacao").textContent ="€ " + divulgacaoEuro.toFixed(2)
+        var valorTotal = parseFloat(gebi("total_evento").textContent)
+        var totalEuro = valorTotal / euro
+        gebi("euro_evento").textContent ="€ " + totalEuro.toFixed(2)
+
+    }
     </script>
 </body>
 </html>

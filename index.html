@@ -3,16 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana Acadêmica de Informática</title>
     <link rel="stylesheet" href="assets/style.css">
-    <title>Semana de Info</title>
+    <script src="orcamento.html"></script></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500&display=swap');
+
+    
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pixelify Sans", "Poppins", sans-serif;
+  background-color:rgba(29, 4, 68, 0.267)
+     ;
+}
+
+body {
+    background-image: url('https://www.leidainformatica.com/wp-content/uploads/2021/11/pec-lei-informatica-scaled-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    text-align: center;
+    padding: 50px;
+    
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 22px;
+    
+    
+}
+nav a:hover{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: black;
+}
+
+
+
+header h1{
+    color: #ffffff;
+    font-size:35 ;
+}
+.corpo h1 {
+    color: #ffffff;
+    text-align: center;
+    
+}
+.corpo li {
+    display: inline;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 200px;
+    text-align: center;
+}
+.corpo li:hover{
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    color: #ffffff;
+    
+  
+}
+</style>
+    
+    
 </head>
 <body>
-    <div id="entrada">
-        <h1>Semana Acadêmica de Informática</h1>
-        <br>
-        <h2>VIII - CSI</h2>
-    
-        <a href="orcamento.html">Orçamento</a>
+    <header>
+        <h1>Semana da Informática!!</h1>
+        <nav>
+            <a href="index.html">Parceiros</a>
+            <a href="#">Jogos</a>
+            <a href="#">Fotos</a>
+            <a href="orcamento.html">Orçamento</a>
+            <a href="formulario.html">Inscreva-se</a>
+            <a href="#">Cronograma</a>
+        </nav>
+    </header>
+    <div">
+        <div class="corpo">
+            <h2>A semana Acadêmica de info chegou, fique ligado na nossa programação!!</h2>
+            <ul>
+                <li><a href="#">Palestras</a></li>
+                <li><a href="#">Oficinas</a></li>
+                <li><a href="#">Maratona</a></li>
+                <li><a href="#">Gincana</a></li>
+            </ul>
+            <h2>Apoiadores:</h2>
+            <center>
+                <img src="assets/img/casa do computador.png" alt="">
+                <img src="assets/img/inventario.png" alt="">
+                <img src="assets/img/centro de inovacao.png" alt="">
+            </center>
+        </div>
+        <div id="jogos"><h2>Jogos</h2></div>
+            <ul id="lista" style="display: none;">
+                <li>Rocket League</li>
+                <li>Mortal Kombat</li>
+                <li>Valorant</li>
+                <li>FIFA</li>
+            </ul>
+        <div id="galeria">
+            <h2>Galeria de Fotos:</h2>
+            <a href="https://videira.ifc.edu.br/tecnico-informatica/sci-semana-academica-da-ciencia-da-computacao-e-informatica/">Galeria</a>
+        </div>
+        <div id="cronograma">
+            <h2>Cronograma</h2>
+            <tr>
+                <th>Segunda-Feira</th>
+                <th>Terça-Feira</th>
+                <th>Quarta-Feira</th>
+            </tr>
+            <a href="formulario">Inscreva-se!</a>
+        </div>
     </div>
 </body>
+<script>
+    function jogos() {
+        // Captura o elemento e a lista
+        var elemento = document.getElementById("jogos");
+        var lista = document.getElementById("lista");
+
+        // Adiciona um ouvinte de evento para quando o mouse entra no elemento
+        elemento.addEventListener("mouseover", function() {
+        // Mostra a lista quando o mouse está sobre o elemento
+        lista.style.display = "block";
+        });
+
+        // Adiciona um ouvinte de evento para quando o mouse sai do elemento
+        elemento.addEventListener("mouseout", function() {
+        // Oculta a lista quando o mouse sai do elemento
+        lista.style.display = "none";
+        });
+
+    }
+</script>
 </html>
+    

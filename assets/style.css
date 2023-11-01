@@ -9,26 +9,266 @@
 
 h1 {
   font-size: 60px;
+  margin-top: 50px;
+}
+
+header {
+  text-align: center;
+  padding: 50px;
+  background-image: url('https://www.leidainformatica.com/wp-content/uploads/2021/11/pec-lei-informatica-scaled-1.jpg');
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 22px;
+  
+  
+}
+nav a:hover{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  color: black;
+}
+
+header h1{
+  color: #ffffff;
+  font-size:35 ;
 }
 
 #orc_1 {
   text-align: center;
-  font-size: 24px;
-}
+  font-size: 20px;
+  background-color: black;
+  width: 1500px;
+  height: 1000px;
+  border-radius:20px;
+  padding-bottom: 1150px;
+  }
 
-#orc_1 h1 {
-  margin: 100px;
+.input {
+  background-color: gray;
 }
 
 .number {
   width: 200px; height: 50px;
-  font-size: 45px
+  font-size: 45px;
+  text-align: center;
+  background-color: gray
 }
 
-.tabela {
-  margin: auto
-}
 .botao {
   width: 200px; height: 50px;
   font-size: large;
+}
+
+#tabela_evento, #tabela_divulgacao, #tabela_alimentos {
+  width: 800px;
+  height: 200px;
+}
+
+#tabela_dolar {
+  display: inline;
+  float: left;
+  border-radius: 20px;
+  
+}
+
+#tabela_euro {
+  display: inline;
+  float: right;
+}
+
+#texto {
+  background-color: #070707;
+  border-radius: 5px;
+  border-color: #111;
+  color: #ccc;
+  font-size: large;
+}
+
+#botao_final {
+display:table;
+margin: auto 0;
+}
+
+img {
+  width: 300px;
+  display: inline;
+  margin: auto;
+  float: none;
+  margin: 0px 150px 0px 150px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 40px;
+}
+
+#jogos {
+  text-align: center;
+  display: inline;
+  
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  justify-content: center;
+  height: 100vh;
+  background-color: #18042e;
+  color: #ffffff;
+}
+
+form {
+  text-align: center;
+  background-color: #000000;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 800px; /* Definindo uma largura para o formulário */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label,
+form input,
+form select {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%; /* Expandir os elementos para ocupar a largura do formulário */
+}
+
+form input,
+form select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button[type="submit"] {
+  background-color: #18042e;
+  color: white;
+  cursor: pointer;
+  width: 40%; /* Expandir o botão para ocupar a largura do formulário */
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #070707;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  margin: 20px;
+  font-size: larger;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #070707;       
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #070707;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+      @keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/*teste*/
+.rgbform {
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.rgbform:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.rgbform:active {
+  color: #ffffff
+}
+
+.rgbform:hover:before {
+  opacity: 1;
+}
+
+.rgbform:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+      @keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 }
